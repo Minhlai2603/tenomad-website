@@ -1,0 +1,129 @@
+---
+import '../styles/components/why-work-with-us.css';
+---
+
+<section class="why-us" id="why-us">
+  <div class="container">
+    <div class="why-us__header">
+      <h2 class="why-us__title" data-animate="fade-up">WHY WORK WITH US</h2>
+      <p class="why-us__subtitle" data-animate="fade-up" data-delay="0.2">
+        You're not here because we're the best, <br />
+        You are here because we're doing our best for you.
+      </p>
+    </div>
+
+    <div class="why-us__grid">
+      <!-- Item 1 -->
+      <article class="why-card" data-animate="fade-up" data-delay="0.1">
+        <div class="why-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3 class="why-card__title">Industry Experience</h3>
+        <p class="why-card__description">
+          10 years
+        </p>
+      </article>
+
+      <!-- Item 2 -->
+      <article class="why-card" data-animate="fade-up" data-delay="0.2">
+        <div class="why-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3 class="why-card__title">Brilliant Team</h3>
+        <p class="why-card__description">
+          Young, Smart, High Skill
+        </p>
+      </article>
+
+      <!-- Item 3 -->
+      <article class="why-card" data-animate="fade-up" data-delay="0.3">
+        <div class="why-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <h3 class="why-card__title">Creative & Profesional</h3>
+        <p class="why-card__description">
+          Professional in design and innovative in execution, transforming your concepts into state-of-the-art software systems.
+        </p>
+      </article>
+
+      <!-- Item 4 -->
+      <article class="why-card" data-animate="fade-up" data-delay="0.4">
+        <div class="why-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+            <line x1="6" y1="6" x2="6.01" y2="6"/>
+            <line x1="6" y1="18" x2="6.01" y2="18"/>
+          </svg>
+        </div>
+        <h3 class="why-card__title">Complex Solutions</h3>
+        <p class="why-card__description">
+          Designing scalable system architectures and complex API integrations that drive enterprise-grade business operations.
+        </p>
+      </article>
+
+      <!-- Item 5 -->
+      <article class="why-card" data-animate="fade-up" data-delay="0.5">
+        <div class="why-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <h3 class="why-card__title">100% Result Guarantee and Maintain</h3>
+        <p class="why-card__description">
+          We ensure high quality deliverables with full ongoing support and post-production application maintenance.
+        </p>
+      </article>
+
+      <!-- Item 6 -->
+      <article class="why-card" data-animate="fade-up" data-delay="0.6">
+        <div class="why-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="1" x2="12" y2="23"/>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <h3 class="why-card__title">Affordable Budget</h3>
+        <p class="why-card__description">
+          Leveraging competitive offshore resources to deliver premium quality solutions at a fraction of local development costs.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // GSAP ScrollTrigger stagger for why-card entries on desktop
+    if (window.innerWidth >= 768) {
+      gsap.from('.why-card', {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.why-us__grid',
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      });
+    }
+  });
+</script>
