@@ -1,0 +1,102 @@
+---
+import '../styles/components/testimonials.css';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+---
+
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials__header">
+      <h2 class="testimonials__title" data-animate="fade-up">What Our Clients Say</h2>
+      <p class="testimonials__subtitle" data-animate="fade-up" data-delay="0.2">
+        Hear directly from the businesses and organizations we have helped succeed online.
+      </p>
+    </div>
+
+    <div class="swiper testimonials-slider" data-animate="fade-up" data-delay="0.4">
+      <div class="swiper-wrapper">
+        <!-- Testimonial 1 -->
+        <div class="swiper-slide">
+          <article class="testimonial-card">
+            <div class="testimonial-card__quote-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+            </div>
+            <blockquote class="testimonial-card__text">
+              "Totally innovative. LTVtrade™, [in conjunction with Tenomad] has built an incredibly comprehensive digital marketplace that meets the needs of both buyers and sellers."
+            </blockquote>
+            <div class="testimonial-card__author">
+              <span class="testimonial-card__name">Sandy Frucher</span>
+              <span class="testimonial-card__role">Vice Chairman of the Nasdaq.</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="swiper-slide">
+          <article class="testimonial-card">
+            <div class="testimonial-card__quote-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+            </div>
+            <blockquote class="testimonial-card__text">
+              "Having been involved with photography and imaging for my entire career, I needed help bringing it to life online and Tenomad put me on the cutting edge. My business has blossomed as a result and helped me jump far ahead of the competition."
+            </blockquote>
+            <div class="testimonial-card__author">
+              <span class="testimonial-card__name">Christine DiCarlo</span>
+              <span class="testimonial-card__role">Broker of Reméo Realty.</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="swiper-slide">
+          <article class="testimonial-card">
+            <div class="testimonial-card__quote-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+            </div>
+            <blockquote class="testimonial-card__text">
+              "I approached Tenomad with an idea to bring my salespitch to my customers around the clock, they executed and my business is booming."
+            </blockquote>
+            <div class="testimonial-card__author">
+              <span class="testimonial-card__name">Zarley Zalapski</span>
+              <span class="testimonial-card__role">Founder, Peek in Tours.</span>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new Swiper('.testimonials-slider', {
+      modules: [Pagination, Autoplay, EffectFade],
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnHover: true
+      },
+      grabCursor: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      }
+    });
+  });
+</script>
