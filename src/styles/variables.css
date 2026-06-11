@@ -1,0 +1,88 @@
+:root {
+  /* Color Palette — Light Mode Backgrounds */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F7FA;
+  --bg-tertiary: #EEF1F6;
+  --bg-card: #FFFFFF;
+  --bg-hero: linear-gradient(135deg, #1B2A4A 0%, #0B88EE 100%);
+  --bg-footer: #1E2022;
+
+  /* Text Colors */
+  --text-primary: #1A1A2E;
+  --text-secondary: #4A5568;
+  --text-muted: #718096;
+  --text-on-dark: #FFFFFF;
+  --text-on-hero: #FFFFFF;
+
+  /* Brand Colors */
+  --accent-gold: #E8A600;
+  --accent-gold-hover: #D49800;
+  --accent-blue: #0B88EE;
+  --accent-blue-light: #E8F4FD;
+  --accent-indigo: #1B2A4A;
+
+  /* Neon Accent Colors */
+  --neon-cyan: #00F0FF;
+  --neon-blue: #3B82F6;
+  --neon-purple: #A855F7;
+
+  /* Semantic Colors */
+  --success: #22C55E;
+  --error: #EF4444;
+  --warning: #F59E0B;
+
+  /* Surface & Effects */
+  --border-light: #E2E8F0;
+  --border-card: rgba(0,0,0,0.06);
+  --overlay: rgba(27,42,74,0.6);
+
+  /* Typography Sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3.5rem;
+  --text-hero: 4.5rem;
+
+  /* Spacing Scale (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-30: 120px;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-card: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-elevated: 0 16px 48px rgba(0,0,0,0.16);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-light: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-blur: 12px;
+  --glass-blur-heavy: 20px;
+
+  /* Animation */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
