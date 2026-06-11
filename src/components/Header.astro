@@ -1,0 +1,170 @@
+---
+import '../styles/components/header.css';
+---
+
+<header class="header" id="site-header">
+  <div class="header__container">
+    <!-- Logo -->
+    <a href="/" class="header__logo" aria-label="Tenomad Home">
+      <svg class="header__logo-svg" width="140" height="36" viewBox="0 0 140 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FFB800" />
+            <stop offset="100%" stop-color="#FF5C00" />
+          </linearGradient>
+        </defs>
+        <!-- Double-N icon -->
+        <path d="M12 6V30M12 6L24 30V6M24 14L36 30V6M36 6V30" stroke="url(#logo-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Text: Tenomad -->
+        <text x="46" y="24" fill="var(--text-primary)" font-family="Inter, sans-serif" font-weight="800" font-size="16" letter-spacing="1">TENOMAD</text>
+      </svg>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="header__nav" aria-label="Primary Navigation">
+      <ul class="header__menu">
+        <li class="header__item">
+          <a href="/" class="header__link">Home</a>
+        </li>
+        <li class="header__item">
+          <a href="/about-us" class="header__link">About Us</a>
+        </li>
+        <li class="header__item header__item--dropdown">
+          <a href="/services" class="header__link" aria-haspopup="true" aria-expanded="false">
+            Services
+            <svg class="header__caret" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <ul class="header__dropdown-menu" aria-label="Services Submenu">
+            <li class="header__dropdown-item">
+              <a href="/services/web-development" class="header__dropdown-link">Web Development</a>
+            </li>
+            <li class="header__dropdown-item">
+              <a href="/services/mobile-app" class="header__dropdown-link">Mobile App Development</a>
+            </li>
+            <li class="header__dropdown-item">
+              <a href="/services/dedicated-team" class="header__dropdown-link">Dedicated Team</a>
+            </li>
+            <li class="header__dropdown-item">
+              <a href="/services/startups" class="header__dropdown-link">Startups</a>
+            </li>
+            <li class="header__dropdown-item">
+              <a href="/services/qa-testing" class="header__dropdown-link">QA & Testing</a>
+            </li>
+            <li class="header__dropdown-item">
+              <a href="/services/design" class="header__dropdown-link">Design</a>
+            </li>
+            <li class="header__dropdown-item">
+              <a href="/services/ai-nlp" class="header__dropdown-link">AI & NLP Consulting</a>
+            </li>
+          </ul>
+        </li>
+        <li class="header__item">
+          <a href="/portfolio" class="header__link">Portfolio</a>
+        </li>
+        <li class="header__item">
+          <a href="/careers" class="header__link">Careers</a>
+        </li>
+        <li class="header__item">
+          <a href="/blog" class="header__link">Blog</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- CTA & Hamburger -->
+    <div class="header__actions">
+      <a href="/contact" class="header__cta">Let's Talk</a>
+      <button class="header__hamburger" id="hamburger-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="header__hamburger-line"></span>
+        <span class="header__hamburger-line"></span>
+        <span class="header__hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="header__mobile-overlay" id="mobile-menu" aria-hidden="true">
+    <nav class="header__mobile-nav" aria-label="Mobile Navigation">
+      <ul class="header__mobile-menu">
+        <li>
+          <a href="/" class="header__mobile-link">Home</a>
+        </li>
+        <li>
+          <a href="/about-us" class="header__mobile-link">About Us</a>
+        </li>
+        <li>
+          <button class="header__mobile-link" id="mobile-accordion-btn" aria-expanded="false" aria-controls="mobile-services-menu" style="background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
+            Services
+            <svg class="header__caret" width="14" height="8" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="header__mobile-dropdown" id="mobile-services-menu">
+            <li><a href="/services/web-development" class="header__mobile-dropdown-link">Web Development</a></li>
+            <li><a href="/services/mobile-app" class="header__mobile-dropdown-link">Mobile App Development</a></li>
+            <li><a href="/services/dedicated-team" class="header__mobile-dropdown-link">Dedicated Team</a></li>
+            <li><a href="/services/startups" class="header__mobile-dropdown-link">Startups</a></li>
+            <li><a href="/services/qa-testing" class="header__mobile-dropdown-link">QA & Testing</a></li>
+            <li><a href="/services/design" class="header__mobile-dropdown-link">Design</a></li>
+            <li><a href="/services/ai-nlp" class="header__mobile-dropdown-link">AI & NLP Consulting</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/portfolio" class="header__mobile-link">Portfolio</a>
+        </li>
+        <li>
+          <a href="/careers" class="header__mobile-link">Careers</a>
+        </li>
+        <li>
+          <a href="/blog" class="header__mobile-link">Blog</a>
+        </li>
+        <li>
+          <a href="/contact" class="header__mobile-link">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Mobile menu interactive logic
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileAccordionBtn = document.getElementById('mobile-accordion-btn');
+  const mobileServicesMenu = document.getElementById('mobile-services-menu');
+
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+      hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('header__mobile-overlay--active');
+      mobileMenu.setAttribute('aria-hidden', isExpanded);
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
+    });
+
+    // Close menu on keypress Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('header__mobile-overlay--active')) {
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('header__mobile-overlay--active');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        hamburgerBtn.focus();
+      }
+    });
+  }
+
+  if (mobileAccordionBtn && mobileServicesMenu) {
+    mobileAccordionBtn.addEventListener('click', () => {
+      const isExpanded = mobileAccordionBtn.getAttribute('aria-expanded') === 'true';
+      mobileAccordionBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileServicesMenu.classList.toggle('header__mobile-dropdown--active');
+      
+      const caret = mobileAccordionBtn.querySelector('.header__caret');
+      if (caret) {
+        caret.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+      }
+    });
+  }
+</script>
