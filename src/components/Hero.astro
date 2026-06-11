@@ -1,0 +1,65 @@
+---
+import '../styles/components/hero.css';
+---
+
+<section class="hero" id="hero">
+  <div class="container hero__container">
+    <div class="hero__content">
+      <h1 class="hero__title" data-animate="fade-up">You Dream It, We Build It</h1>
+      <p class="hero__subtitle" data-animate="fade-up" data-delay="0.2">
+        We are group of experts that will help you bring your ideas to life. Let's create something great together!
+      </p>
+      <div class="hero__actions" data-animate="fade-up" data-delay="0.4">
+        <a href="/services" class="btn btn--primary" aria-label="Explore Our Services">DISCOVER MORE</a>
+        <a href="/portfolio" class="btn btn--secondary" aria-label="View Portfolio">View Portfolio</a>
+      </div>
+    </div>
+    <div class="hero__graphic" data-animate="fade-in" data-delay="0.6">
+      <svg class="hero__svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Background Glow -->
+        <circle cx="250" cy="250" r="180" fill="url(#hero-glow)" opacity="0.3"/>
+        
+        <!-- Abstract Tech Elements -->
+        <g stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.8">
+          <circle cx="250" cy="250" r="130" stroke="var(--neon-cyan)" stroke-dasharray="10 15"/>
+          <circle cx="250" cy="250" r="90" stroke="var(--neon-purple)" stroke-dasharray="40 10 5 10"/>
+          
+          <!-- Outer orbital rings -->
+          <path d="M120 250C120 178.203 178.203 120 250 120" stroke="var(--neon-cyan)" stroke-width="4"/>
+          <path d="M380 250C380 321.797 321.797 380 250 380" stroke="var(--neon-purple)" stroke-width="4"/>
+        </g>
+        
+        <!-- Floating Nodes & Connections -->
+        <g opacity="0.9">
+          <!-- Connection lines -->
+          <line x1="200" y1="180" x2="300" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="300" y1="180" x2="340" y2="250" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="340" y1="250" x2="300" y2="320" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="300" y1="320" x2="200" y2="320" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="200" y1="320" x2="160" y2="250" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="160" y1="250" x2="200" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          
+          <!-- Central device symbol -->
+          <rect x="210" y="210" width="80" height="80" rx="12" fill="var(--accent-indigo)" stroke="var(--neon-cyan)" stroke-width="3"/>
+          <circle cx="250" cy="250" r="15" fill="var(--accent-gold)"/>
+          
+          <!-- Outer floating circles -->
+          <circle cx="200" cy="180" r="8" fill="var(--neon-cyan)" filter="drop-shadow(0 0 6px var(--neon-cyan))"/>
+          <circle cx="300" cy="180" r="10" fill="var(--neon-purple)" filter="drop-shadow(0 0 8px var(--neon-purple))"/>
+          <circle cx="340" cy="250" r="6" fill="var(--accent-gold)" filter="drop-shadow(0 0 6px var(--accent-gold))"/>
+          <circle cx="300" cy="320" r="8" fill="var(--neon-cyan)" filter="drop-shadow(0 0 6px var(--neon-cyan))"/>
+          <circle cx="200" cy="320" r="10" fill="var(--neon-purple)" filter="drop-shadow(0 0 8px var(--neon-purple))"/>
+          <circle cx="160" cy="250" r="6" fill="var(--accent-gold)" filter="drop-shadow(0 0 6px var(--accent-gold))"/>
+        </g>
+        
+        <!-- Definitions -->
+        <defs>
+          <radialGradient id="hero-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="var(--neon-cyan)"/>
+            <stop offset="100%" stop-color="var(--accent-blue)" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
+</section>
