@@ -1,53 +1,5 @@
 [
   {
-    "name": "Andrew B. Zimmerman",
-    "role": "Executive Vice President",
-    "type": "management",
-    "description": "Founder, has over 28 years of executive leadership experience."
-  },
-  {
-    "name": "Jack Durburg",
-    "role": "Chief Financial Officer",
-    "type": "management",
-    "description": "Has over 25 years of experience in Finance and Accounting in fast-paced environments."
-  },
-  {
-    "name": "Jennifer Ashley",
-    "role": "Chief Information Officer",
-    "type": "management",
-    "description": "Has over 20 years’ experience at growing, multi-national companies."
-  },
-  {
-    "name": "Ar. Melligeri",
-    "role": "Chairman & CEO",
-    "type": "management",
-    "description": "Founder, chairman, and chief executive officer of Buildz."
-  },
-  {
-    "name": "Henry Smith",
-    "role": "General Manager",
-    "type": "management",
-    "description": "Deleniti dicta inventore, ducimus, laudantium sint molestias est esse nihil facilis labore similique voluptatibus dolore hic."
-  },
-  {
-    "name": "Luke Carter",
-    "role": "Assistant Engineer",
-    "type": "management",
-    "description": "Deleniti dicta inventore, ducimus, laudantium sint molestias est esse nihil facilis labore similique voluptatibus dolore hic."
-  },
-  {
-    "name": "Courtney Ybarra",
-    "role": "Chief Engineer",
-    "type": "management",
-    "description": "Deleniti dicta inventore, ducimus, laudantium sint molestias est esse nihil facilis labore similique voluptatibus dolore hic."
-  },
-  {
-    "name": "Dorothy M. Nickkell",
-    "role": "Architect Designer",
-    "type": "management",
-    "description": "Deleniti dicta inventore, ducimus, laudantium sint molestias est esse nihil facilis labore similique voluptatibus dolore hic."
-  },
-  {
     "name": "Nguyen Nguyen",
     "role": "Co-founder / Project Manager",
     "type": "team",

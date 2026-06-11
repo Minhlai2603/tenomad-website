@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AboutHero from '../components/AboutHero.astro';
+import MissionVision from '../components/MissionVision.astro';
+import AboutCoreValues from '../components/AboutCoreValues.astro';
+
+import TeamGrid from '../components/TeamGrid.astro';
+import '../styles/components/breadcrumbs.css';
+---
+
+<Layout 
+  pageTitle="About Us" 
+  pageDescription="We founded and developed Tenomad with all the aspirations of youth... Tenomad means 'Digital Nomad' – that is the spirit of dare to think, dare to do."
+>
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item">
+          <a href="/" class="breadcrumbs__link">Home</a>
+        </li>
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__current" aria-current="page">About Us</span>
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <AboutHero />
+  <MissionVision />
+  <AboutCoreValues />
+
+  <TeamGrid />
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Only animate if screen width is 768px or greater
+    if (window.innerWidth >= 768) {
+      // Fade up animations
+      const fadeUpElements = document.querySelectorAll('[data-animate="fade-up"]');
+      fadeUpElements.forEach((el) => {
+        // Skip elements that are inside team grid to let its specific stagger script handle them
+        if (el.closest('.team-grid__wrapper')) {
+          return;
+        }
+
+        const delayAttr = el.getAttribute('data-delay') || '0';
+        const delay = parseFloat(delayAttr);
+        
+        gsap.fromTo(el,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: delay,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      });
+
+      // Fade in animations
+      const fadeInElements = document.querySelectorAll('[data-animate="fade-in"]');
+      fadeInElements.forEach((el) => {
+        const delayAttr = el.getAttribute('data-delay') || '0';
+        const delay = parseFloat(delayAttr);
+        
+        gsap.fromTo(el,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            delay: delay,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      });
+    } else {
+      // On mobile/tablet < 768px, make all animated elements fully visible immediately
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach((el) => {
+        gsap.set(el, { opacity: 1, y: 0, x: 0 });
+      });
+    }
+  });
+</script>
