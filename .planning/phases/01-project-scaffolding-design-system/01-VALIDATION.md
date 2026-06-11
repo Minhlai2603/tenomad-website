@@ -19,15 +19,15 @@ created: 2026-06-11
 |----------|-------|
 | **Framework** | custom-node-script |
 | **Config file** | none |
-| **Quick run command** | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.js` |
-| **Full suite command** | `npm run build && node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.js` |
+| **Quick run command** | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs` |
+| **Full suite command** | `npm run build && node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs` |
 | **Estimated runtime** | ~10 seconds |
 
 ---
 
 ## Sampling Rate
 
-- **After every task commit:** Run `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.js`
+- **After every task commit:** Run `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs`
 - **After every plan wave:** Run `npm run build`
 - **Before /gsd-verify-work:** Full build must pass cleanly
 - **Max feedback latency:** 10 seconds
@@ -38,11 +38,11 @@ created: 2026-06-11
 
 | Task ID | Plan | Wave | Requirement | Threat Ref | Secure Behavior | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|------------|-----------------|-----------|-------------------|-------------|--------|
-| 1-01-01 | 01 | 1 | NFR-01 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.js --task 1` | ✅ W0 | ⬜ pending |
-| 1-01-02 | 01 | 1 | NFR-02 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.js --task 2` | ✅ W0 | ⬜ pending |
-| 1-01-03 | 01 | 1 | NFR-03 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.js --task 3` | ✅ W0 | ⬜ pending |
-| 1-01-04 | 01 | 1 | NFR-04 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.js --task 4` | ✅ W0 | ⬜ pending |
-| 1-01-05 | 01 | 1 | NFR-04 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.js --task 5` | ✅ W0 | ⬜ pending |
+| 1-01-01 | 01 | 1 | NFR-01 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 1` | ✅ W0 | ⬜ pending |
+| 1-01-02 | 01 | 1 | NFR-02 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 2` | ✅ W0 | ⬜ pending |
+| 1-01-03 | 01 | 1 | NFR-03 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 3` | ✅ W0 | ⬜ pending |
+| 1-01-04 | 01 | 1 | NFR-04 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 4` | ✅ W0 | ⬜ pending |
+| 1-01-05 | 01 | 1 | NFR-04 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 5` | ✅ W0 | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -50,7 +50,7 @@ created: 2026-06-11
 
 ## Wave 0 Requirements
 
-- [ ] `.planning/phases/01-project-scaffolding-design-system/verify-scaffold.js` — validation script
+- [ ] `.planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs` — validation script
 
 *If none: "Existing infrastructure covers all phase requirements."*
 
