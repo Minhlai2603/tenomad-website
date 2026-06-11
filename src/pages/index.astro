@@ -1,16 +1,127 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProfessionalApproach from '../components/ProfessionalApproach.astro';
+import ServicesSlider from '../components/ServicesSlider.astro';
+import UnlimitedPossibilities from '../components/UnlimitedPossibilities.astro';
+import CoreValues from '../components/CoreValues.astro';
+import WhyWorkWithUs from '../components/WhyWorkWithUs.astro';
+import FeaturedWork from '../components/FeaturedWork.astro';
+import Testimonials from '../components/Testimonials.astro';
+import SplitCTA from '../components/SplitCTA.astro';
 ---
 
 <Layout 
   pageTitle="Home" 
   pageDescription="We are group of experts that will help you bring your ideas to life. Let's create something great together!"
 >
-  <div class="hero-section">
-    <div class="container">
-      <h1 class="hero-section__title">You Dream It, We Build It</h1>
-      <p class="hero-section__subtitle">We are group of experts that will help you bring your ideas to life. Let's create something great together!</p>
-      <a href="/contact" class="header__cta">DISCOVER MORE</a>
-    </div>
-  </div>
+  <Hero />
+  <ProfessionalApproach />
+  <ServicesSlider />
+  <UnlimitedPossibilities />
+  <CoreValues />
+  <WhyWorkWithUs />
+  <FeaturedWork />
+  <Testimonials />
+  <SplitCTA />
 </Layout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Only animate if screen width is 768px or greater
+    if (window.innerWidth >= 768) {
+      // Fade up animations
+      const fadeUpElements = document.querySelectorAll('[data-animate="fade-up"]');
+      fadeUpElements.forEach((el) => {
+        const delayAttr = el.getAttribute('data-delay') || '0';
+        const delay = parseFloat(delayAttr);
+        
+        gsap.fromTo(el,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: delay,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      });
+
+      // Fade in animations
+      const fadeInElements = document.querySelectorAll('[data-animate="fade-in"]');
+      fadeInElements.forEach((el) => {
+        const delayAttr = el.getAttribute('data-delay') || '0';
+        const delay = parseFloat(delayAttr);
+        
+        gsap.fromTo(el,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            delay: delay,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      });
+
+      // Fade left / right animations
+      const fadeLeftElements = document.querySelectorAll('[data-animate="fade-left"]');
+      fadeLeftElements.forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0, x: 50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      });
+
+      const fadeRightElements = document.querySelectorAll('[data-animate="fade-right"]');
+      fadeRightElements.forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0, x: -50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      });
+    } else {
+      // On mobile/tablet < 768px, make all animated elements fully visible immediately
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach((el) => {
+        gsap.set(el, { opacity: 1, y: 0, x: 0 });
+      });
+    }
+  });
+</script>
