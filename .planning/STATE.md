@@ -29,7 +29,7 @@ progress:
 | 2 | Layout, Header & Footer | Complete | 1/1 |
 | 3 | Brand Assets & Data Files | Complete | 1/1 |
 | 4 | Homepage | Complete | 1/1 |
-| 5 | About Us Page | pending | 0/0 |
+| 5 | About Us Page | Planned | 0/1 |
 | 6 | Services Pages | pending | 0/0 |
 | 7 | Portfolio Page | pending | 0/0 |
 | 8 | Careers & Contact Pages | pending | 0/0 |
