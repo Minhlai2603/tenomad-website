@@ -4,7 +4,7 @@
 
 ### Phase 1: Project Scaffolding & Design System
 
-**Status:** pending
+**Status:** Complete (completed 2026-06-11)
 **Requirements:** NFR-01, NFR-02, NFR-03, NFR-04
 **Description:** Initialize Astro v5 project, install dependencies (gsap, swiper), configure astro.config.mjs (site, output, build.assets). Create src/styles/variables.css with all design tokens from DESIGN-SYSTEM.md. Create global.css with CSS reset and base utilities. Set up directory structure per AGENTS.md §3.
 
