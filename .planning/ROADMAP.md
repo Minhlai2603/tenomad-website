@@ -10,7 +10,7 @@
 
 ### Phase 2: Layout, Header & Footer
 
-**Status:** pending
+**Status:** Planned
 **Requirements:** FR-11, FR-12, NFR-05, NFR-06, NFR-07
 **Description:** Build Layout.astro with full <head> (SEO meta, OG tags, canonical, Google Fonts, favicon). Create Header component (sticky glass, nav with Services dropdown, mobile hamburger overlay, "Let's Talk" CTA). Create Footer component (3-column dark, social icons, copyright). Ensure single h1 per page, semantic HTML.
 
