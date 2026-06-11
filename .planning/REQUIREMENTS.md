@@ -15,12 +15,12 @@
 
 ## Data & Content
 
-- **REQ-11** Blog: Astro Content Collections, 4 markdown posts (frontmatter: title, date, slug, excerpt, thumbnail, category)
+- **REQ-11** Blog: Astro Content Collections, 4 markdown posts (frontmatter: title, date, slug, excerpt, thumbnail, category) with exact slugs: `the-rise-of-digital-nomads`, `ios-developer-skills-matrix`, `blockchain-in-200-lines-of-code`, `my-4-deepest-scars`.
 - **REQ-12** Team data: JSON — 8 management + 32 team members (name, role, type, description)
 - **REQ-13** Portfolio data: JSON — 11 projects (id, title, tags[], description, thumbnail)
 - **REQ-14** Services data: JSON — 7 services (id, title, slug, shortDescription, icon)
 - **REQ-15** Careers data: JSON — 3 positions (title, location, quantity, salary, description, requirements, benefits)
-- **REQ-16** Content verbatim from CONTENT.md. Career content in Vietnamese.
+- **REQ-16** Content verbatim from CONTENT.md. Career job descriptions/requirements/benefits must remain in Vietnamese; structural labels (headers, buttons, layout elements) must be in English.
 
 ## Components
 
@@ -43,17 +43,17 @@
 ## SEO & Accessibility
 
 - **REQ-26** Every page: unique pageTitle + pageDescription to Layout
-- **REQ-27** `<head>`: charset, viewport, title, meta desc, canonical (tenomad.com), OG tags, Twitter card, favicon, Google Fonts
+- **REQ-27** `<head>` must include: charset, viewport, title formatted as `{pageTitle} | Tenomad`, meta description, canonical URL set strictly to `https://tenomad.com`, OG tags (title, desc, image, url, type), Twitter card, favicon, Google Fonts (Inter 400-800).
 - **REQ-28** Single `<h1>` per page. Semantic HTML (header, main, section, article, footer, nav).
 - **REQ-29** Interactive elements: unique IDs + ARIA labels. Form inputs with linked `<label>`.
 
 ## Assets
 
 - **REQ-30** Generate: logo.svg (double-N, orange-yellow gradient), favicon.ico, og-image.png (1200×630)
-- **REQ-31** Generate: 11 portfolio thumbnails (WebP)
-- **REQ-32** Generate: 4 blog thumbnails (WebP)
+- **REQ-31** Generate: 11 portfolio WebP thumbnails with exact filenames: `portfolio-{homing,drberg,tago,dms,valleysierra,sqoop,swolematch,leedpop,xeke,mycalsigns,vespasafari}.webp`.
+- **REQ-32** Generate: 4 blog WebP thumbnails with exact filenames: `blog-{nomads,skills,blockchain,scars}.webp`.
 - **REQ-33** Generate: hero-graphic.svg, hue-map.webp
-- **REQ-34** Team: 8 management + 32 team member placeholder avatars
+- **REQ-34** Team: 8 management + 32 team member placeholder avatars (circular SVG or styled letter circles).
 
 ## Animations
 
@@ -63,8 +63,9 @@
 - **REQ-38** Disable complex animations on mobile (innerWidth < 768)
 - **REQ-39** Shared animation utils in src/scripts/animations.js
 
-## Performance
+## Performance & Constraints
 
 - **REQ-40** Lighthouse: Performance ≥90, Accessibility ≥95, SEO ≥95
 - **REQ-41** FCP ≤1.5s, LCP ≤2.5s, CLS ≤0.1
 - **REQ-42** Page weight ≤500KB (excl. images), JS bundle ≤100KB
+- **REQ-43** Prohibited Technologies: Do NOT install or use Astro integrations (such as `@astrojs/react`, `@astrojs/tailwind`), do NOT use TypeScript (only vanilla JS), and do NOT use a Vercel adapter (build must output static files via output: 'static').
