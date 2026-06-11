@@ -38,11 +38,11 @@ created: 2026-06-11
 
 | Task ID | Plan | Wave | Requirement | Threat Ref | Secure Behavior | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|------------|-----------------|-----------|-------------------|-------------|--------|
-| 1-01-01 | 01 | 1 | NFR-01 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 1` | ✅ W0 | ⬜ pending |
-| 1-01-02 | 01 | 1 | NFR-02 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 2` | ✅ W0 | ⬜ pending |
-| 1-01-03 | 01 | 1 | NFR-03 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 3` | ✅ W0 | ⬜ pending |
-| 1-01-04 | 01 | 1 | NFR-04 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 4` | ✅ W0 | ⬜ pending |
-| 1-01-05 | 01 | 1 | NFR-04 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 5` | ✅ W0 | ⬜ pending |
+| 1-01-01 | 01 | 1 | NFR-01 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 1` | ✅ W0 | ✅ green |
+| 1-01-02 | 01 | 1 | NFR-02 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 2` | ✅ W0 | ✅ green |
+| 1-01-03 | 01 | 1 | NFR-03 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 3` | ✅ W0 | ✅ green |
+| 1-01-04 | 01 | 1 | NFR-04 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 4` | ✅ W0 | ✅ green |
+| 1-01-05 | 01 | 1 | NFR-04 | — | N/A | integration | `node .planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs --task 5` | ✅ W0 | ✅ green |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -50,7 +50,7 @@ created: 2026-06-11
 
 ## Wave 0 Requirements
 
-- [ ] `.planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs` — validation script
+- [x] `.planning/phases/01-project-scaffolding-design-system/verify-scaffold.cjs` — validation script
 
 *If none: "Existing infrastructure covers all phase requirements."*
 
@@ -71,4 +71,4 @@ created: 2026-06-11
 - [x] Feedback latency < 10s
 - [x] `nyquist_compliant: true` set in frontmatter
 
-**Approval:** pending
+**Approval:** approved
