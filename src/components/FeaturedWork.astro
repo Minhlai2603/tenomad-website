@@ -1,0 +1,77 @@
+---
+import portfolio from '../data/portfolio.json';
+import '../styles/components/featured-work.css';
+
+// Featured Projects checklist: Tago, Valley Sierra, DMS
+const featuredIds = ['tago', 'valleysierra', 'dms'];
+const featuredProjects = portfolio.filter(p => featuredIds.includes(p.id));
+---
+
+<section class="featured-work" id="portfolio">
+  <div class="container">
+    <div class="featured-work__header">
+      <h2 class="featured-work__title" data-animate="fade-up">Our Featured Work</h2>
+      <p class="featured-work__subtitle" data-animate="fade-up" data-delay="0.2">
+        A hand-picked selection of successful projects we have designed, built, and launched.
+      </p>
+    </div>
+
+    <div class="featured-work__grid">
+      {featuredProjects.map((project) => (
+        <div class="project-card" data-animate="fade-up" data-parallax="true">
+          <div class="project-card__img-container">
+            <img 
+              src={`/assets/${project.thumbnail}`} 
+              alt={`Thumbnail for ${project.title}`}
+              class="project-card__img"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-card__overlay">
+            <h3 class="project-card__title">{project.title}</h3>
+            <div class="project-card__tags">
+              {project.tags.map((tag) => (
+                <span class="project-card__tag">{tag}</span>
+              ))}
+            </div>
+            <a href="/portfolio" class="project-card__btn" aria-label={`View case study for ${project.title}`}>
+              View Case Study
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Parallax effect on scroll for featured cards (only on desktop)
+    if (window.innerWidth >= 768) {
+      const cards = document.querySelectorAll('.project-card[data-parallax="true"]');
+      cards.forEach((card) => {
+        const img = card.querySelector('.project-card__img');
+        if (img) {
+          gsap.fromTo(img,
+            { yPercent: -10 },
+            {
+              yPercent: 10,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
+              }
+            }
+          );
+        }
+      });
+    }
+  });
+</script>
