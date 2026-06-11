@@ -1,0 +1,102 @@
+---
+import '../styles/components/core-values.css';
+---
+
+<section class="core-values" id="core-values">
+  <div class="container">
+    <div class="core-values__header">
+      <h2 class="core-values__title" data-animate="fade-up">Driven by Core Values</h2>
+      <p class="core-values__subtitle" data-animate="fade-up" data-delay="0.2">
+        Our principles shape our culture, define our character, and guide how we behave and make decisions.
+      </p>
+    </div>
+
+    <div class="core-values__grid">
+      <!-- Passion -->
+      <article class="value-card" data-animate="fade-up" data-delay="0.1">
+        <span class="value-card__num" aria-hidden="true">01</span>
+        <h3 class="value-card__title">Passion</h3>
+        <p class="value-card__description">
+          Do what you love, and love what you do. We are passionate about the success of our customers, our employees, our consultants, and our communities. We have passion for encouraging innovation and bringing forth new ideas and solutions.
+        </p>
+      </article>
+
+      <!-- Respect -->
+      <article class="value-card" data-animate="fade-up" data-delay="0.3">
+        <span class="value-card__num" aria-hidden="true">02</span>
+        <h3 class="value-card__title">Respect</h3>
+        <p class="value-card__description">
+          Treat one another with respect. Treating others with dignity and respecting all opinions and views not only fosters collaboration, but is the foundation of our one-team environment.
+        </p>
+      </article>
+
+      <!-- Integrity -->
+      <article class="value-card" data-animate="fade-up" data-delay="0.5">
+        <span class="value-card__num" aria-hidden="true">03</span>
+        <h3 class="value-card__title">Integrity</h3>
+        <p class="value-card__description">
+          Conduct all dealings with integrity. We will not compromise on our high standards of professional ethics, honesty, and transparency in all interactions with our clients, suppliers, consultants, and each other.
+        </p>
+      </article>
+
+      <!-- Excellence -->
+      <article class="value-card" data-animate="fade-up" data-delay="0.7">
+        <span class="value-card__num" aria-hidden="true">04</span>
+        <h3 class="value-card__title">Excellence</h3>
+        <p class="value-card__description">
+          Be the best, and give the best. We are committed to building leadership and talent that demonstrates and promotes excellence in what we do every day. We focus on the best service and results for our internal and external clients. We are always ready to innovate, embrace change, and evolve to reach new levels of excellence.
+        </p>
+      </article>
+    </div>
+
+    <!-- Counters -->
+    <div class="counters__grid" data-animate="fade-up" data-delay="0.8">
+      <div class="counter-item">
+        <span class="counter-item__number"><span class="counter-val" data-target="10">10</span>+</span>
+        <span class="counter-item__label">Years of Experience</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-item__number"><span class="counter-val" data-target="638">638</span>+</span>
+        <span class="counter-item__label">Projects Completed</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-item__number"><span class="counter-val" data-target="598">598</span>+</span>
+        <span class="counter-item__label">Happy Clients</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Only count-up if screen width is 768px or greater
+    if (window.innerWidth >= 768) {
+      const counters = document.querySelectorAll('.counter-val');
+      counters.forEach((counter) => {
+        const targetAttr = counter.getAttribute('data-target');
+        if (!targetAttr) return;
+        const target = parseInt(targetAttr, 10);
+        
+        gsap.fromTo(counter, 
+          { textContent: '0' },
+          {
+            textContent: target,
+            duration: 1.5,
+            ease: 'power2.out',
+            snap: { textContent: 1 },
+            scrollTrigger: {
+              trigger: counter,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+      });
+    }
+  });
+</script>
