@@ -38,9 +38,9 @@ created: 2026-06-11
 
 | Task ID | Plan | Wave | Requirement | Threat Ref | Secure Behavior | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|------------|-----------------|-----------|-------------------|-------------|--------|
-| 3-01-01 | 01 | 1 | FR-19, FR-20, FR-21, FR-22 | — | N/A | integration | `node .planning/phases/03-brand-assets-data-files/verify-assets.cjs --task 1` | ✅ W0 | ⬜ pending |
-| 3-01-02 | 01 | 1 | NFR-15, NFR-16, NFR-18, NFR-19 | — | N/A | integration | `node .planning/phases/03-brand-assets-data-files/verify-assets.cjs --task 2` | ✅ W0 | ⬜ pending |
-| 3-01-03 | 01 | 1 | FR-23 | — | N/A | integration | `node .planning/phases/03-brand-assets-data-files/verify-assets.cjs --task 3` | ✅ W0 | ⬜ pending |
+| 3-01-01 | 01 | 1 | FR-19, FR-20, FR-21, FR-22 | — | N/A | integration | `node .planning/phases/03-brand-assets-data-files/verify-assets.cjs --task 1` | ✅ W0 | ✅ green |
+| 3-01-02 | 01 | 1 | NFR-15, NFR-16, NFR-18, NFR-19 | — | N/A | integration | `node .planning/phases/03-brand-assets-data-files/verify-assets.cjs --task 2` | ✅ W0 | ✅ green |
+| 3-01-03 | 01 | 1 | FR-23 | — | N/A | integration | `node .planning/phases/03-brand-assets-data-files/verify-assets.cjs --task 3` | ✅ W0 | ✅ green |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
