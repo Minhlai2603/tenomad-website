@@ -1,0 +1,79 @@
+[
+  {
+    "id": "homing",
+    "title": "Homing",
+    "tags": ["Design", "Startup", "Website"],
+    "description": "Real estate search engine mockup (desktop and mobile view). Laptop screen shows search box and \"The Smarter Way Home\".",
+    "thumbnail": "portfolio-homing.webp"
+  },
+  {
+    "id": "drberg",
+    "title": "Dr. Berg",
+    "tags": ["Startup", "Website"],
+    "description": "Dr. Berg's Keto & Intermittent Fasting membership website/app mockup (desktop and mobile view).",
+    "thumbnail": "portfolio-drberg.webp"
+  },
+  {
+    "id": "tago",
+    "title": "Tago",
+    "tags": ["Mobile"],
+    "description": "Psychological counseling chatbot. Uses Dialogflow and Firebase.",
+    "thumbnail": "portfolio-tago.webp"
+  },
+  {
+    "id": "dms",
+    "title": "DMS (Asim Telecom / VPBank Local)",
+    "tags": ["Startup", "Website", "Mobile"],
+    "description": "Build an application for STORE management. Features local SIM cards (red/yellow branding).",
+    "thumbnail": "portfolio-dms.webp"
+  },
+  {
+    "id": "valleysierra",
+    "title": "Valley Sierra",
+    "tags": ["Ecomerce", "Website"],
+    "description": "Valley-Sierra Insurance is composed of dedicated experts solving insurance needs.",
+    "thumbnail": "portfolio-valleysierra.webp"
+  },
+  {
+    "id": "sqoop",
+    "title": "Sqoop (Dahappen)",
+    "tags": ["Mobile", "Website"],
+    "description": "Mobile app mockup displaying a colorful spiral logo and name \"DAHAPPEN\". Website: http://sqoop-app.com.",
+    "thumbnail": "portfolio-sqoop.webp"
+  },
+  {
+    "id": "swolematch",
+    "title": "Swolematch",
+    "tags": ["Hybrid App", "Mobile", "Website"],
+    "description": "Mobile app signup/login mockup with pink barbell heart logo (\"Sporta Aplikacija Fin Pink\").",
+    "thumbnail": "portfolio-swolematch.webp"
+  },
+  {
+    "id": "leedpop",
+    "title": "Leed Pop (lp)",
+    "tags": ["Hybrid App", "Mobile", "Website"],
+    "description": "Mobile app screens showing a lead generation list (\"Post a new lead\", \"Select a Category\").",
+    "thumbnail": "portfolio-leedpop.webp"
+  },
+  {
+    "id": "xeke",
+    "title": "XEKE",
+    "tags": ["Mobile", "Website"],
+    "description": "Mobile, smartwatch, and website mockup for XEKE (ride hailing or mapping app).",
+    "thumbnail": "portfolio-xeke.webp"
+  },
+  {
+    "id": "mycalsigns",
+    "title": "My CalSigns",
+    "tags": ["Website"],
+    "description": "Website mockup for Cal Signs Inc (licensed, insured, UL listed signs manufacturer).",
+    "thumbnail": "portfolio-mycalsigns.webp"
+  },
+  {
+    "id": "vespasafari",
+    "title": "Vespa Safari",
+    "tags": ["Website"],
+    "description": "Website mockup showing vintage Vespa tours in Hue, Vietnam (purple background card with \"VESPASAFARI WEBSITE\").",
+    "thumbnail": "portfolio-vespasafari.webp"
+  }
+]

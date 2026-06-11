@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Andrew B. Zimmerman",
+    "role": "Executive Vice President",
+    "type": "management",
+    "description": "Founder, has over 28 years of executive leadership experience."
+  },
+  {
+    "name": "Jack Durburg",
+    "role": "Chief Financial Officer",
+    "type": "management",
+    "description": "Has over 25 years of experience in Finance and Accounting in fast-paced environments."
+  },
+  {
+    "name": "Jennifer Ashley",
+    "role": "Chief Information Officer",
+    "type": "management",
+    "description": "Has over 20 years’ experience at growing, multi-national companies."
+  },
+  {
+    "name": "Ar. Melligeri",
+    "role": "Chairman & CEO",
+    "type": "management",
+    "description": "Founder, chairman, and chief executive officer of Buildz."
+  },
+  {
+    "name": "Henry Smith",
+    "role": "General Manager",
+    "type": "management",
+    "description": "Deleniti dicta inventore, ducimus, laudantium sint molestias est esse nihil facilis labore similique voluptatibus dolore hic."
+  },
+  {
+    "name": "Luke Carter",
+    "role": "Assistant Engineer",
+    "type": "management",
+    "description": "Deleniti dicta inventore, ducimus, laudantium sint molestias est esse nihil facilis labore similique voluptatibus dolore hic."
+  },
+  {
+    "name": "Courtney Ybarra",
+    "role": "Chief Engineer",
+    "type": "management",
+    "description": "Deleniti dicta inventore, ducimus, laudantium sint molestias est esse nihil facilis labore similique voluptatibus dolore hic."
+  },
+  {
+    "name": "Dorothy M. Nickkell",
+    "role": "Architect Designer",
+    "type": "management",
+    "description": "Deleniti dicta inventore, ducimus, laudantium sint molestias est esse nihil facilis labore similique voluptatibus dolore hic."
+  },
+  {
+    "name": "Nguyen Nguyen",
+    "role": "Co-founder / Project Manager",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Hung Vo",
+    "role": "Co-founder / CTO",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Bao Nguyen",
+    "role": "CMO",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Linh Tran",
+    "role": "Accountant",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Loan Tran",
+    "role": "Project Manager",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Quan Nguyen",
+    "role": "Senior Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Wendy Trinh",
+    "role": "CSM - Customer Success Manager",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Duc Thai",
+    "role": "Frontend Team Leader",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Dung Nguyen",
+    "role": "Design Team Leader",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Tien Truong",
+    "role": "Mobile Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Nhu Tran",
+    "role": "Technical Leader",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Hoa Truong",
+    "role": "Mobile Team Leader",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Huyen Tran",
+    "role": "QA/QC Team Leader",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Bao Phan",
+    "role": "Mobile Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Phuoc Nguyen",
+    "role": "Web Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Huong Tran",
+    "role": "QA",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Nhi Hoang",
+    "role": "Web Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Thien Cao",
+    "role": "Mobile Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Hoa Cao",
+    "role": "Web Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Trang Le",
+    "role": "Designer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Hieu Nguyen",
+    "role": "Web Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Tri Hoang",
+    "role": "Web Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Huy Phan",
+    "role": "Web Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Khanh Tran",
+    "role": "Web Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Dan Le",
+    "role": "Web Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Loi Tu",
+    "role": "QA",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Thanh Tran",
+    "role": "QA",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Hang Phan",
+    "role": "Accountant / Human Resources",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Trung Nguyen",
+    "role": "Web Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Hung Nguyen",
+    "role": "Web Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Binh Truong",
+    "role": "Web Developer",
+    "type": "team",
+    "description": ""
+  },
+  {
+    "name": "Hung Dau",
+    "role": "Senior Mobile Developer",
+    "type": "team",
+    "description": ""
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "web-development",
+    "title": "Web Development",
+    "slug": "web-development",
+    "shortDescription": "A simple to-go solution for many businesses is developing a responsive web app at the beginning, which will help minimize the cost for update and maintenance in the long run.",
+    "icon": "code"
+  },
+  {
+    "id": "mobile-app",
+    "title": "Mobile App Development",
+    "slug": "mobile-app",
+    "shortDescription": "Our versatile experience in offshore mobile app development allows us to support our clients and their business regardless of which industry they belong...",
+    "icon": "smartphone"
+  },
+  {
+    "id": "dedicated-team",
+    "title": "Dedicated Team",
+    "slug": "dedicated-team",
+    "shortDescription": "Hiring developers is expensive. Our Dedicated Teams of developers allow you to scale up or down, with any skillsets that your projects require.",
+    "icon": "users"
+  },
+  {
+    "id": "startups",
+    "title": "Startups",
+    "slug": "startups",
+    "shortDescription": "Growth, traction, and expansion are always top of mind among startup founders. We help develop, deploy, and maintain core business applications.",
+    "icon": "rocket"
+  },
+  {
+    "id": "qa-testing",
+    "title": "QA & Testing",
+    "slug": "qa-testing",
+    "shortDescription": "Your developers like to write code. Our team of highly trained Quality Assurance Leaders and Software Testers can be of service.",
+    "icon": "shield"
+  },
+  {
+    "id": "design",
+    "title": "Design",
+    "slug": "design",
+    "shortDescription": "At Tenomad, we do not just make nice looking websites, we also focus on business success, brand credibility, and high-impact media solutions.",
+    "icon": "palette"
+  },
+  {
+    "id": "ai-nlp",
+    "title": "AI & NLP Consulting",
+    "slug": "ai-nlp",
+    "shortDescription": "Integrating conversational interfaces, computer vision, and NLP to support customers, automate requests, and forecast business outcomes.",
+    "icon": "cpu"
+  }
+]

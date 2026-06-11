@@ -1,0 +1,78 @@
+[
+  {
+    "title": "Web Developer",
+    "location": "Hue City (Nơi làm việc: thành phố Huế)",
+    "quantity": "02 (Số lượng: 02)",
+    "salary": "6 - 12 million VND (Mức lương: 6 - 12 triệu - luôn xứng đáng với năng lực và đóng góp)",
+    "description": [
+      "Thiết kế và xây dựng ứng dụng web/app.",
+      "Tham gia phân tích thiết kế hệ thống, thiết kế Database, thiết kế chi tiết.",
+      "Tham gia vào các hoạt động phát triển ứng dụng như lập kế hoạch, lập trình, kiểm thử và phát hành sản phẩm Web Application (PHP).",
+      "Làm việc với PHP Web framework như Zend, CodeIgniter, Laravel, ..",
+      "Thực hiện các dự án phát triển các ứng dụng Web Application.",
+      "Lắng nghe yêu cầu, khắc phục các vấn đề của sản phẩm, cải tiến và nâng cao chất lượng dự án."
+    ],
+    "requirements": [
+      "Tốt nghiệp Đại học/Cao Đẳng hoặc trung tâm đào tạo lập trình viên (Aptech, NIIT,...) ngành Công nghệ thông tin.",
+      "Có kinh nghiệm làm việc 1 năm trở lên.",
+      "Thành thạo 1 ngôn ngữ lập trình web (PHP, Java, Nodejs).",
+      "Có kinh nghiệm làm việc với Javascript framework: ReactJS hoặc VueJS, Sass/Less, HTML."
+    ],
+    "benefits": [
+      "Lương thưởng theo năng lực làm việc.",
+      "Làm việc trong môi trường năng động, nhiều thử thách.",
+      "Được hưởng BHXH, BHYT và các phúc lợi khác theo luật lao động."
+    ]
+  },
+  {
+    "title": "Android Developer",
+    "location": "Hue City (Nơi làm việc: thành phố Huế)",
+    "quantity": "01 (Số lượng: 01)",
+    "salary": "6 - 10 million VND (Mức lương: 6 - 10 triệu - luôn xứng đáng với năng lực và đóng góp)",
+    "description": [
+      "Tham gia phát triển các dự án ứng dụng dành cho Android với khách hàng.",
+      "Nghiên cứu công nghệ, xây dựng mới và mở rộng mã code hiện tại của các dự án.",
+      "Lập trình ứng dụng Android sử dụng ngôn ngữ Java (có kiến thức về Kotlin).",
+      "Quản lý và maintain các ứng dụng đảm bảo chất lượng.",
+      "Làm việc độc lập, trách nhiệm, kỉ luật."
+    ],
+    "requirements": [
+      "Tốt nghiệp Đại học/Cao Đẳng hoặc trung tâm đào tạo lập trình viên (Aptech, NIIT,...) ngành Công nghệ thông tin.",
+      "Có kinh nghiệm làm việc 1 năm trở lên, tham gia ít nhất 1 dự án Android.",
+      "Kinh nghiệm tốt với các dịch vụ web (REST, JSON hoặc SOAP).",
+      "Kiến thức vững chắc về các nguyên tắc thiết kế giao diện người dùng Android.",
+      "Hiểu và nắm được Java và lập trình hướng đối tượng.",
+      "Hiểu và nắm được coding convention cơ bản."
+    ],
+    "benefits": [
+      "Lương thưởng theo năng lực làm việc.",
+      "Làm việc trong môi trường năng động, nhiều thử thách.",
+      "Được hưởng đầy đủ BHXH, BHYT."
+    ]
+  },
+  {
+    "title": "Designer",
+    "location": "Hue City (Nơi làm việc: thành phố Huế)",
+    "quantity": "01 (Số lượng: 01)",
+    "salary": "5 - 10 million VND (Mức lương: 5 - 10 triệu)",
+    "description": [
+      "Thiết kế giao diện, sáng tạo ra giao diện người dùng thân thiện, hiệu quả cho các sản phẩm, dự án web/mobile công ty đang phát triển.",
+      "Vẽ đồ họa, dựng hoàn chỉnh các hình ảnh thực tế lên file theo yêu cầu.",
+      "Nắm bắt xu thế phát triển của thế giới để tạo ra giao diện người dùng thân thiện.",
+      "Thực hiện các công việc khác theo sự phân công của Manager."
+    ],
+    "requirements": [
+      "Đã tốt nghiệp Cao đẳng trở lên chuyên ngành Mỹ Thuật hoặc liên quan đến các ngành thiết kế, đồ họa.",
+      "Có ít nhất 1 năm kinh nghiệm ở vị trí tương đương.",
+      "Sử dụng thông thạo các công cụ đồ họa PTS, AI.",
+      "Thành thạo Photoshop, Adobe Illustrator.",
+      "Có tư duy thiết kế tốt và sáng tạo, bố trí bố cục, màu sắc.",
+      "Tiếng anh tốt là một lợi thế."
+    ],
+    "benefits": [
+      "Lương thưởng theo năng lực làm việc.",
+      "Làm việc trong môi trường năng động, nhiều thử thách.",
+      "Được hưởng BHXH, BHYT và các phúc lợi khác."
+    ]
+  }
+]
