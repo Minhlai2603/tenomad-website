@@ -1,0 +1,106 @@
+.possibilities {
+  background-color: var(--bg-secondary);
+  padding: var(--space-20) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.possibilities__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.possibilities__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.possibilities__title {
+  font-size: var(--text-3xl);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  line-height: 1.2;
+}
+
+.possibilities__subtitle {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-8);
+}
+
+.possibilities__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.possibilities__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.possibilities__item-icon {
+  width: 24px;
+  height: 24px;
+  background-color: var(--accent-blue-light);
+  color: var(--accent-blue);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.possibilities__item-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.possibilities__graphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.possibilities__svg {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.05));
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .possibilities__container {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+  .possibilities__graphic {
+    order: -1; /* Graphic on top for mobile/tablet */
+  }
+  .possibilities__svg {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 767px) {
+  .possibilities {
+    padding: var(--space-12) 0;
+  }
+  .possibilities__title {
+    font-size: var(--text-2xl);
+  }
+  .possibilities__list {
+    grid-template-columns: 1fr;
+  }
+}
