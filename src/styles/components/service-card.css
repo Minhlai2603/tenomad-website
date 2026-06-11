@@ -1,0 +1,89 @@
+.services-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-normal) var(--ease-smooth);
+  height: 100%;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.services-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(11, 136, 238, 0.3);
+}
+
+.services-card__top {
+  display: flex;
+  flex-direction: column;
+}
+
+.services-card__icon {
+  width: 48px;
+  height: 48px;
+  background-color: var(--accent-blue-light);
+  color: var(--accent-blue);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-6);
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.services-card:hover .services-card__icon {
+  background-color: var(--accent-blue);
+  color: #FFFFFF;
+  filter: drop-shadow(0 4px 10px rgba(11, 136, 238, 0.4));
+}
+
+.services-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.services-card__title {
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  font-weight: 700;
+}
+
+.services-card__desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+.services-card__link {
+  font-size: var(--text-sm);
+  color: var(--accent-blue);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: color var(--duration-fast) var(--ease-smooth);
+  margin-top: auto;
+}
+
+.services-card__link:hover {
+  color: var(--accent-indigo);
+}
+
+.services-card__link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--duration-fast) var(--ease-smooth);
+}
+
+.services-card__link:hover svg {
+  transform: translateX(4px);
+}

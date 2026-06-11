@@ -1,0 +1,130 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import services from '../../data/services.json';
+import '../../styles/components/services-overview.css';
+
+const breadcrumbItems = [
+  { title: 'Home', url: '/' },
+  { title: 'Services' }
+];
+---
+
+<Layout
+  pageTitle="Our Services"
+  pageDescription="Tenomad provides professional software development services, including Web Development, Mobile Apps, Dedicated Teams, and AI consulting."
+>
+  <div class="services-overview-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbItems} />
+
+      <!-- Banner / Hero Section -->
+      <section class="services-hero">
+        <div class="services-hero__content">
+          <h1 class="services-hero__title" data-animate="fade-up">Our Services</h1>
+          <p class="services-hero__subtitle" data-animate="fade-up" data-delay="0.1">
+            We partner with clients to identify real business opportunities and match up the right technologies in order to create fast and effective applications.
+          </p>
+        </div>
+      </section>
+
+      <!-- Services Framework Section -->
+      <section class="services-framework">
+        <div class="services-framework__header" data-animate="fade-up">
+          <h2 class="services-framework__title">Services Framework</h2>
+          <p class="services-framework__desc">Our engineering approach is designed for speed, flexibility, and quality assurance.</p>
+        </div>
+        <div class="services-framework__grid">
+          <div class="services-framework__card" data-animate="fade-up" data-delay="0.1">
+            <div class="services-framework__icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="services-framework__icon">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="16" x2="12" y2="12"/>
+                <line x1="12" y1="8" x2="12.01" y2="8"/>
+              </svg>
+            </div>
+            <h3 class="services-framework__card-title">Proactive Analysis</h3>
+            <p class="services-framework__card-text">Cost-effective awareness and client requirements analysis.</p>
+          </div>
+
+          <div class="services-framework__card" data-animate="fade-up" data-delay="0.2">
+            <div class="services-framework__icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="services-framework__icon">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
+              </svg>
+            </div>
+            <h3 class="services-framework__card-title">Lean Development</h3>
+            <p class="services-framework__card-text">Agile development minimizing cost and time while maximizing return value.</p>
+          </div>
+
+          <div class="services-framework__card" data-animate="fade-up" data-delay="0.3">
+            <div class="services-framework__icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="services-framework__icon">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h3 class="services-framework__card-title">Continuous Delivery</h3>
+            <p class="services-framework__card-text">CI/CD integration ensuring quick feedback and progress within a few days of kickoff.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Grid Section -->
+      <section class="services-list">
+        <div class="services-list__header" data-animate="fade-up">
+          <h2 class="services-list__title">What We Offer</h2>
+          <p class="services-list__desc">Explore our areas of expertise and how we can support your business goals.</p>
+        </div>
+        <div class="services-list__grid">
+          {services.map((service, index) => (
+            <div class="services-list__item" data-animate="fade-up" data-delay={0.05 * (index % 4)}>
+              <ServiceCard service={service} />
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth >= 768) {
+      const animatedElements = document.querySelectorAll('[data-animate="fade-up"]');
+      animatedElements.forEach((el) => {
+        const delayAttr = el.getAttribute('data-delay') || '0';
+        const delay = parseFloat(delayAttr);
+        
+        gsap.fromTo(el,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: delay,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      });
+    } else {
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach((el) => {
+        gsap.set(el, { opacity: 1, y: 0 });
+      });
+    }
+  });
+</script>

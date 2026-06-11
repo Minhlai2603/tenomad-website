@@ -137,8 +137,16 @@
   transition: transform var(--duration-fast) var(--ease-smooth);
 }
 
-.header__item--dropdown:hover .header__caret {
+.header__item--dropdown:hover .header__caret,
+.header__item--dropdown:focus-within .header__caret {
   transform: rotate(180deg);
+}
+
+.header__item--dropdown:hover .header__dropdown-menu,
+.header__item--dropdown:focus-within .header__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* CTA Buttons */

@@ -49,5 +49,11 @@ const ogImageUrl = new URL('/assets/og-image.png', 'https://tenomad.com').toStri
       <slot />
     </main>
     <Footer />
+    <script>
+      import { initAnimations } from '../scripts/animations.js';
+      
+      document.addEventListener('astro:page-load', initAnimations);
+      initAnimations();
+    </script>
   </body>
 </html>

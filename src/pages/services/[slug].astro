@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import services from '../../data/services.json';
+import portfolio from '../../data/portfolio.json';
+import '../../styles/components/service-detail.css';
+
+export async function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service }
+  }));
+}
+
+const { service } = Astro.props;
+const currentSlug = service.slug;
+
+const breadcrumbItems = [
+  { title: 'Home', url: '/' },
+  { title: 'Services', url: '/services' },
+  { title: service.title }
+];
+
+// Related projects filtering logic
+const getRelatedProjects = (slug: string) => {
+  if (slug === 'web-development') {
+    return portfolio.filter(p => p.tags.includes('Website') || p.tags.includes('Ecomerce') || p.tags.includes('Hybrid App'));
+  }
+  if (slug === 'mobile-app') {
+    return portfolio.filter(p => p.tags.includes('Mobile') || p.tags.includes('Hybrid App'));
+  }
+  if (slug === 'startups') {
+    return portfolio.filter(p => p.tags.includes('Startup'));
+  }
+  if (slug === 'design') {
+    return portfolio.filter(p => p.tags.includes('Design'));
+  }
+  // Fallback / default projects
+  return portfolio.slice(0, 3);
+};
+
+const relatedProjects = getRelatedProjects(currentSlug).slice(0, 3);
+---
+
+<Layout
+  pageTitle={service.title}
+  pageDescription={service.shortDescription}
+>
+  <div class="service-detail">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbItems} />
+
+      <div class="service-detail__layout">
+        <!-- Sticky Sidebar Navigation -->
+        <aside class="service-detail__sidebar">
+          <nav class="services-sidebar" aria-label="Services Navigation">
+            <ul class="services-sidebar__list">
+              {services.map((s) => (
+                <li class="services-sidebar__item">
+                  <a
+                    href={`/services/${s.slug}`}
+                    class={`services-sidebar__link ${s.slug === currentSlug ? 'services-sidebar__link--active' : ''}`}
+                    aria-current={s.slug === currentSlug ? 'page' : undefined}
+                  >
+                    {s.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="service-detail__content">
+          <h1 class="service-detail__title">{service.title}</h1>
+
+          <div class="service-detail__body">
+            {currentSlug === 'web-development' && (
+              <>
+                <p>What makes Tenomad the best choice for your website development project? It’s a simple answer. You can’t afford to waste your investment for such a crucial aspect of your business by leaving it in the hands of amateurs. You are investing not only money, but your time when you decide to redesign your website. Not all websites are created equally. Our experience and expertise are unparalleled in the technology industry. We’ve been building and hosting websites since dial up connections were the norm. Our talented team of digital strategists, graphic artists, developers, marketers, project managers and business development associates work in a collaborative manner on projects for each and every client. Working together in teams, Americaneagle.com is able to generate successful online results for our clients. We’ve been doing it for many years!</p>
+                <h3>Kind of Web Application Development:</h3>
+                <ul>
+                  <li>Mobile responsive websites</li>
+                  <li>e-Commerce</li>
+                  <li>Web applications</li>
+                  <li>Product strategy & management consulting</li>
+                  <li>UX/UI</li>
+                  <li>Integration with 3rd party APIs</li>
+                  <li>Hosting</li>
+                </ul>
+              </>
+            )}
+
+            {currentSlug === 'mobile-app' && (
+              <>
+                <p>Give your customers the opportunity to interact with your brand anywhere and anytime with a mobile solution from Tenomad. Whether your mobile solution needs a little push or a lot of hand holding, our mobile experts can provide valuable advice and strategies for capturing and converting the largest audience of users while maximizing ROI. Our mobile experts can steer your project from conception to completion, helping your team navigate between important choices like deciding between a mobile site, responsive site, or mobile app, and maximizing user experience. Choosing Inlumina for your mobile websites will ensure a friendly, easily navigable design that delivers the most valuable content to your target audiences in an upfront and intuitive manner. Inlumina offers native mobile app development for iOS and Android for businesses worldwide. We specialize in native mobile app development and offer a wide range of web-based mobile solutions: from optimizing websites for mobile presentation...</p>
+              </>
+            )}
+
+            {currentSlug === 'dedicated-team' && (
+              <>
+                <p>Hiring developers is expensive. The US Labor Department reports that the median wage for software developers in 2014 was $95,510. The competition for highly skilled developers is especially intense, with the top 10% of developers earning over $150,000 annually. If you need to hire talented software developers, Tenomad has a more cost-effective solution. Our Dedicated Teams of developers allow you to scale up or down, with any skillsets that your projects require. As your project needs change, so can your team members. For example, you might start with a team to build out a native IOS application, but after the app is completed you can switch out for a team of native Android developers to service that platform as well. All of our Dedicated Teams start with at least two developers. We have developers with a multitude of skills on staff, so we can provide just the right developers for your specific project. Once assigned to your project, they work only for you, which is typically 160 hours per month.</p>
+              </>
+            )}
+
+            {currentSlug === 'startups' && (
+              <>
+                <p>Growth, traction, and expansion are always “top of the mind” among startup founders. However, small-business owners only have so much time and can quickly become overwhelmed by their efforts to grow a company. This can diminish founders’ ability to focus on core tasks, like building and iterating their product, app, or service. One solution to address the limitations of a small team is to outsource and find the right tools. Thousands of startups all over the world are already outsourcing administrative tasks like accounting, human resources, and even customer service. Now, businesses can even pay third parties to do essential services, including developing, deploying, and maintaining core business applications and collecting, managing, and analyzing big data.</p>
+                <h3>Tenomad With Your Ideas Startup:</h3>
+                <p>Many small startup teams are too busy raising funds or actually running the company to market it effectively, analyze data, or provide extensive customer service. I know successful founders who spend up to half their time on these tasks. Outsourcing non-core competencies allows founders to focus on product strategy and execution.</p>
+              </>
+            )}
+
+            {currentSlug === 'qa-testing' && (
+              <>
+                <p>Your developers like to write code. Chances are good that they are not as passionate about testing the code that they produce. That’s where our team of highly trained Quality Assurance Leaders and their team of Software Testers can be of service. We founded Tenomad with Total Quality Control as our mantra. We’ve brought manufacturing control principles to the software development industry.</p>
+                <h3>Functional Testing:</h3>
+                <p>Our functional testing process identifies and validates the functions that the software code is expected to perform.</p>
+                <ul>
+                  <li>We create input data based on the function’s predetermined specifications.</li>
+                  <li>We create a list of the expected output based on the function’s specifications.</li>
+                  <li>We execute the test case.</li>
+                  <li>We compare the actual and expected outputs.</li>
+                  <li>We verify whether the application worked as expected.</li>
+                </ul>
+                <h3>Functional testing comes in a variety of flavors:</h3>
+                <ul>
+                  <li><strong>Smoke Testing:</strong> is preliminary testing to reveal simple failures severe enough to (for example) reject a prospective software release. A smoke tester will check that the build is stable and the main features work before doing more detailed tests.</li>
+                </ul>
+              </>
+            )}
+
+            {currentSlug === 'design' && (
+              <>
+                <h3>Website design:</h3>
+                <p>At Tenomad, we do not just make nice looking websites (although we’re good at that too!), we also focus on business success and brand credibility for our clients. Our wide range of expertise deliver solutions to business that are much more than static websites but are integrated, measurable digital strategies.</p>
+                <h3>Motion graphic design:</h3>
+                <p>Wow your audiences with motion graphic design. The biggest advantage of motion graphics design is that there is no limit to the possibilities available. The only limit is your imagination. Motion graphics design helps businesses bring their brands to life in a way unlike ever before. We design and animate video openers, video display, logo stings, logo animation, titles animation, and lower thirds to bring all of your ideas and concepts to life.</p>
+                <h3>Interactive multimedia:</h3>
+                <p>We have been delivering high quality, creative, innovative, and interactive media solutions to hundreds of companies since 2010. We thrive on creating high-impact media solutions.</p>
+              </>
+            )}
+
+            {currentSlug === 'ai-nlp' && (
+              <>
+                <h3>1. AI Consulting – The Essential AI Value Proposition</h3>
+                <p>Computer vision holds countless everyday personal and business applications. One may engage them for shopping, for driving, and for so much more.</p>
+                <ul>
+                  <li><strong>Lower Cost:</strong> Increase operational efficiencies especially where manual human effort is excessive. Technology powered by automation and machine learning is already outperforming humans in routine tasks and helping reduce human drudgery. With less fatigued workers, your business can deliver better value through human empathy and efficiency.</li>
+                  <li><strong>Higher Revenue:</strong> In recent years, machine learning predictive models have surpassed statistical techniques in forecasting outcome. Businesses can now forecast sales, customer churn and loyalty with unprecedented accuracy leading to more informed decision making. Deep learning networks can analyze huge data sets which are humanly not possible. With better predictions, your business is empowered with more opportunities.</li>
+                </ul>
+                <h3>2. NLP – Natural Language Processing</h3>
+                <p>Integrating conversational interfaces (Chatbots) to support customers, handle inquiries, automate requests, and understand text contexts.</p>
+              </>
+            )}
+          </div>
+
+          <!-- Related Projects Section -->
+          {relatedProjects.length > 0 && (
+            <section class="service-detail__related">
+              <h2 class="service-detail__related-title">Related Projects</h2>
+              <div class="service-detail__related-grid">
+                {relatedProjects.map((project) => (
+                  <article class="related-project-card">
+                    <div class="related-project-card__image-wrapper">
+                      <img
+                        src={`/assets/${project.thumbnail}`}
+                        alt={`Screenshot of ${project.title}`}
+                        class="related-project-card__image"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="related-project-card__content">
+                      <h3 class="related-project-card__title">{project.title}</h3>
+                      <p class="related-project-card__desc">{project.description}</p>
+                      <div class="related-project-card__tags">
+                        {project.tags.map((tag) => (
+                          <span class="related-project-card__tag">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <!-- Contact CTA -->
+          <div class="service-detail__cta">
+            <h2 class="service-detail__cta-title">Ready to bring your ideas to life?</h2>
+            <p class="service-detail__cta-desc">Let's discuss how we can help you build your next software or digital solution.</p>
+            <a href="/contact" class="service-detail__cta-btn">Let's Talk</a>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</Layout>

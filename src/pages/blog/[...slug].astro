@@ -1,0 +1,367 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// For recent posts in sidebar
+const allPosts = await getCollection('blog');
+const recentPosts = allPosts
+  .filter(p => p.slug !== entry.slug)
+  .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
+  .slice(0, 3);
+---
+
+<Layout pageTitle={entry.data.title} pageDescription={entry.data.excerpt}>
+  <div class="blog-detail-page">
+    
+    <!-- Hero Image -->
+    <div class="blog-hero" data-animate="fade-up">
+      <img src={`/assets/${entry.data.thumbnail}`} alt={entry.data.title} class="blog-hero__img" />
+      <div class="blog-hero__overlay">
+        <div class="container blog-hero__content">
+          <span class="blog-category">{entry.data.category}</span>
+          <h1 class="blog-title">{entry.data.title}</h1>
+          <time class="blog-date" datetime={entry.data.date}>
+            {new Date(entry.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="blog-content section">
+      <div class="container blog-container">
+        
+        <main class="blog-main" data-animate="fade-up">
+          
+          <!-- Breadcrumbs -->
+          <nav aria-label="Breadcrumb" class="breadcrumbs">
+            <ol class="breadcrumbs__list">
+              <li class="breadcrumbs__item"><a href="/" class="breadcrumbs__link">Home</a></li>
+              <li class="breadcrumbs__separator" aria-hidden="true">/</li>
+              <li class="breadcrumbs__item"><a href="/blog" class="breadcrumbs__link">Blog</a></li>
+              <li class="breadcrumbs__separator" aria-hidden="true">/</li>
+              <li class="breadcrumbs__item"><span class="breadcrumbs__current" aria-current="page">{entry.data.title}</span></li>
+            </ol>
+          </nav>
+
+          <article class="prose">
+            <Content />
+          </article>
+          
+          <div class="blog-actions">
+            <a href="/blog" class="btn btn--secondary">← Back to Blog</a>
+          </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="blog-sidebar" data-animate="fade-up" style="--stagger: 0.2">
+          
+          <!-- Recent Posts Widget -->
+          <div class="sidebar-widget">
+            <h3 class="sidebar-widget__title">Recent Posts</h3>
+            <ul class="recent-posts">
+              {recentPosts.map((post) => (
+                <li class="recent-posts__item">
+                  <a href={`/blog/${post.slug}`} class="recent-posts__link">
+                    <img src={`/assets/${post.data.thumbnail}`} alt="" class="recent-posts__img" loading="lazy" />
+                    <div class="recent-posts__info">
+                      <h4 class="recent-posts__title">{post.data.title}</h4>
+                      <time class="recent-posts__date">{new Date(post.data.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</time>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+        </aside>
+
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style is:global>
+  /* Prose styles for markdown content */
+  .prose {
+    color: var(--text-primary, #0f172a);
+    line-height: 1.7;
+    font-size: var(--text-base, 1rem);
+  }
+  
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    color: var(--text-primary, #0f172a);
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-weight: 700;
+  }
+  
+  .prose h2 { font-size: var(--text-2xl, 1.5rem); }
+  .prose h3 { font-size: var(--text-xl, 1.25rem); }
+  
+  .prose p {
+    margin-bottom: 1.5em;
+  }
+  
+  .prose a {
+    color: var(--accent-blue, #3b82f6);
+    text-decoration: underline;
+  }
+  
+  .prose ul, .prose ol {
+    margin-bottom: 1.5em;
+    padding-left: 1.5em;
+  }
+  
+  .prose li {
+    margin-bottom: 0.5em;
+  }
+  
+  .prose blockquote {
+    border-left: 4px solid var(--accent-gold, #FFC107);
+    padding-left: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    color: var(--text-secondary, #475569);
+    background: var(--bg-secondary, #f8fafc);
+    padding: 1em;
+    border-radius: 0 var(--radius-sm, 4px) var(--radius-sm, 4px) 0;
+  }
+  
+  .prose code {
+    background: var(--bg-secondary, #f1f5f9);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.9em;
+  }
+  
+  .prose pre {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 1.5em;
+    border-radius: var(--radius-md, 8px);
+    overflow-x: auto;
+    margin-bottom: 1.5em;
+  }
+  
+  .prose pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+  
+  .prose img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md, 8px);
+    margin: 2em 0;
+  }
+
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5em;
+  }
+
+  .prose th, .prose td {
+    border: 1px solid var(--border-color, #e2e8f0);
+    padding: 0.75em;
+    text-align: left;
+  }
+
+  .prose th {
+    background: var(--bg-tertiary, #f8fafc);
+    font-weight: 600;
+  }
+</style>
+
+<style>
+  .blog-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 600px;
+  }
+
+  .blog-hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .blog-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.3));
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: var(--space-12, 48px);
+  }
+
+  .blog-hero__content {
+    color: var(--text-on-dark, #ffffff);
+  }
+
+  .blog-category {
+    display: inline-block;
+    background: var(--accent-gold, #FFC107);
+    color: #0f172a;
+    font-size: var(--text-sm, 0.875rem);
+    font-weight: 700;
+    padding: var(--space-1, 4px) var(--space-3, 12px);
+    border-radius: var(--radius-full, 9999px);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-4, 16px);
+  }
+
+  .blog-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: var(--space-4, 16px);
+    max-width: 800px;
+  }
+
+  .blog-date {
+    font-size: var(--text-base, 1rem);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .blog-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10, 40px);
+  }
+
+  @media (min-width: 1024px) {
+    .blog-container {
+      grid-template-columns: 2fr 1fr;
+      gap: var(--space-16, 64px);
+      align-items: start;
+    }
+  }
+
+  .breadcrumbs {
+    margin-bottom: var(--space-8, 32px);
+  }
+
+  .breadcrumbs__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2, 8px);
+    font-size: var(--text-sm, 0.875rem);
+  }
+
+  .breadcrumbs__link {
+    color: var(--text-secondary, #475569);
+    text-decoration: none;
+    transition: color var(--duration-fast, 0.2s) ease;
+  }
+
+  .breadcrumbs__link:hover {
+    color: var(--accent-blue, #3b82f6);
+  }
+
+  .breadcrumbs__separator {
+    color: var(--text-muted, #94a3b8);
+  }
+
+  .breadcrumbs__current {
+    color: var(--text-primary, #0f172a);
+    font-weight: 500;
+  }
+
+  .blog-actions {
+    margin-top: var(--space-12, 48px);
+    padding-top: var(--space-8, 32px);
+    border-top: 1px solid var(--border-color, #e2e8f0);
+  }
+
+  /* Sidebar Styles */
+  .blog-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8, 32px);
+  }
+
+  .sidebar-widget {
+    background: var(--bg-tertiary, #f8fafc);
+    padding: var(--space-6, 24px);
+    border-radius: var(--radius-md, 8px);
+  }
+
+  .sidebar-widget__title {
+    font-size: var(--text-lg, 1.125rem);
+    font-weight: 700;
+    color: var(--text-primary, #0f172a);
+    margin-bottom: var(--space-4, 16px);
+    padding-bottom: var(--space-2, 8px);
+    border-bottom: 2px solid var(--accent-gold, #FFC107);
+    display: inline-block;
+  }
+
+  .recent-posts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4, 16px);
+  }
+
+  .recent-posts__link {
+    display: flex;
+    gap: var(--space-3, 12px);
+    text-decoration: none;
+    color: inherit;
+    align-items: center;
+  }
+
+  .recent-posts__img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--radius-sm, 4px);
+  }
+
+  .recent-posts__info {
+    flex: 1;
+  }
+
+  .recent-posts__title {
+    font-size: var(--text-sm, 0.875rem);
+    font-weight: 600;
+    color: var(--text-primary, #0f172a);
+    margin-bottom: var(--space-1, 4px);
+    line-height: 1.4;
+    transition: color var(--duration-fast, 0.2s) ease;
+  }
+
+  .recent-posts__link:hover .recent-posts__title {
+    color: var(--accent-blue, #3b82f6);
+  }
+
+  .recent-posts__date {
+    font-size: var(--text-xs, 0.75rem);
+    color: var(--text-muted, #64748b);
+  }
+</style>

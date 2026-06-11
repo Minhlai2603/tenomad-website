@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout pageTitle="Contact Us" pageDescription="Get in touch with Tenomad.">
+  <div class="contact-page">
+    <div class="container contact-container">
+      
+      <!-- Contact Info Section -->
+      <section class="contact-info" data-animate="fade-up">
+        <h1 class="contact-info__title">Get In Touch</h1>
+        <p class="contact-info__subtitle">We would love to hear from you. Please fill out the form or reach us using the information below.</p>
+        
+        <div class="contact-info__details">
+          <div class="contact-info__item">
+            <h3 class="contact-info__label">Address</h3>
+            <p class="contact-info__value">79 Nguyen Dinh Chieu Street, Hue City, Vietnam</p>
+          </div>
+          
+          <div class="contact-info__item">
+            <h3 class="contact-info__label">Email</h3>
+            <p class="contact-info__value"><a href="mailto:hello@tenomad.com">hello@tenomad.com</a></p>
+          </div>
+          
+          <div class="contact-info__item">
+            <h3 class="contact-info__label">Phone</h3>
+            <p class="contact-info__value"><a href="tel:+84123456789">+84 123 456 789</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form Section -->
+      <section class="contact-form-section" data-animate="fade-up" style="--stagger: 0.2">
+        <ContactForm />
+      </section>
+      
+    </div>
+
+    <!-- Map Section -->
+    <section class="contact-map" data-animate="fade-up">
+      <img src="/assets/hue-map.webp" alt="Map of Hue City, Vietnam showing Tenomad office location" loading="lazy" class="contact-map__image" />
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .contact-page {
+    padding-top: var(--space-20, 80px);
+  }
+
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12, 48px);
+    margin-bottom: var(--space-20, 80px);
+  }
+
+  @media (min-width: 1024px) {
+    .contact-container {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-20, 80px);
+      align-items: start;
+    }
+  }
+
+  .contact-info__title {
+    font-size: var(--text-hero, 3.5rem);
+    color: var(--text-primary, #0f172a);
+    margin-bottom: var(--space-4, 16px);
+  }
+
+  .contact-info__subtitle {
+    font-size: var(--text-lg, 1.125rem);
+    color: var(--text-secondary, #475569);
+    margin-bottom: var(--space-10, 40px);
+    max-width: 500px;
+  }
+
+  .contact-info__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6, 24px);
+  }
+
+  .contact-info__label {
+    font-size: var(--text-sm, 0.875rem);
+    font-weight: 700;
+    color: var(--text-muted, #64748b);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-1, 4px);
+  }
+
+  .contact-info__value {
+    font-size: var(--text-lg, 1.125rem);
+    color: var(--text-primary, #0f172a);
+    font-weight: 500;
+  }
+
+  .contact-info__value a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--duration-fast, 0.2s) ease;
+  }
+
+  .contact-info__value a:hover {
+    color: var(--accent-blue, #3b82f6);
+  }
+
+  .contact-map {
+    width: 100%;
+    height: 400px;
+    background: var(--bg-secondary, #f1f5f9);
+    overflow: hidden;
+  }
+
+  .contact-map__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

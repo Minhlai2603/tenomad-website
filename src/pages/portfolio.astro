@@ -1,0 +1,193 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+import portfolioData from '../data/portfolio.json';
+
+// Tab filters definition
+const tabFilters = [
+  'All',
+  'Design',
+  'Website',
+  'Mobile',
+  'Startup',
+  'E-commerce',
+  'Hybrid App'
+];
+---
+
+<Layout pageTitle="Portfolio" pageDescription="Our portfolio of successful projects.">
+  <!-- Intro Banner -->
+  <section class="portfolio-banner">
+    <div class="container portfolio-banner__container">
+      <h1 class="portfolio-banner__title" data-animate="fade-up">Our Work</h1>
+      <p class="portfolio-banner__subtitle" data-animate="fade-up">A collection of our finest creations.</p>
+    </div>
+  </section>
+
+  <!-- Filter Bar -->
+  <section class="portfolio-filters-section">
+    <div class="container">
+      <div class="portfolio-filters" role="tablist" aria-label="Portfolio Filters" data-animate="fade-up">
+        {tabFilters.map((tab, index) => (
+          <button 
+            class={`portfolio-filters__btn ${index === 0 ? 'portfolio-filters__btn--active' : ''}`}
+            role="tab"
+            aria-selected={index === 0 ? 'true' : 'false'}
+            data-filter={tab}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Grid -->
+  <section class="portfolio-grid-section section">
+    <div class="container">
+      <div class="portfolio-grid" id="portfolio-grid">
+        {portfolioData.map((project) => (
+          <div class="portfolio-grid__item" data-tags={project.tags.join(',')}>
+            <PortfolioCard
+              title={project.title}
+              tags={project.tags}
+              thumbnail={project.thumbnail}
+              description={project.description}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .portfolio-banner {
+    background: var(--bg-tertiary, #f8fafc);
+    padding: var(--space-20, 80px) 0 var(--space-10, 40px);
+    text-align: center;
+  }
+
+  .portfolio-banner__title {
+    font-size: var(--text-hero, 3.5rem);
+    color: var(--text-primary, #0f172a);
+    margin-bottom: var(--space-4, 16px);
+  }
+
+  .portfolio-banner__subtitle {
+    font-size: var(--text-xl, 1.25rem);
+    color: var(--text-secondary, #475569);
+  }
+
+  .portfolio-filters-section {
+    padding: var(--space-10, 40px) 0 var(--space-8, 32px);
+  }
+
+  .portfolio-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3, 12px);
+    justify-content: center;
+  }
+
+  .portfolio-filters__btn {
+    background: none;
+    border: 1px solid var(--text-muted, #94a3b8);
+    color: var(--text-secondary, #475569);
+    padding: var(--space-2, 8px) var(--space-5, 20px);
+    border-radius: var(--radius-full, 9999px);
+    font-size: var(--text-base, 1rem);
+    cursor: pointer;
+    transition: all var(--duration-fast, 0.2s) var(--ease-smooth, ease);
+  }
+
+  .portfolio-filters__btn:hover,
+  .portfolio-filters__btn--active {
+    background: var(--accent-gold, #FFC107);
+    color: var(--text-on-dark, #0f172a);
+    border-color: var(--accent-gold, #FFC107);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--space-8, 32px);
+  }
+
+  @media (min-width: 768px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  function initPortfolioFilters() {
+    const filterBtns = document.querySelectorAll('.portfolio-filters__btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-grid__item');
+    if (!filterBtns.length) return;
+    
+    const isMobile = window.innerWidth < 768;
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active class
+        filterBtns.forEach(b => {
+          b.classList.remove('portfolio-filters__btn--active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('portfolio-filters__btn--active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        // Animate filtering
+        const tl = gsap.timeline();
+
+        // First fade out all items
+        tl.to(portfolioItems, {
+          opacity: 0,
+          scale: 0.95,
+          duration: isMobile ? 0 : 0.2,
+          stagger: isMobile ? 0 : 0.02,
+          onComplete: () => {
+            // Then show/hide based on filter
+            let itemsToShow = [];
+            portfolioItems.forEach(item => {
+              const tags = item.getAttribute('data-tags') || '';
+              if (filterValue === 'All' || tags.includes(filterValue)) {
+                item.style.display = 'block';
+                itemsToShow.push(item);
+              } else {
+                item.style.display = 'none';
+              }
+            });
+
+            // Finally fade in the matching items
+            gsap.to(itemsToShow, {
+              opacity: 1,
+              scale: 1,
+              duration: isMobile ? 0 : 0.4,
+              stagger: isMobile ? 0 : 0.05,
+              ease: "back.out(1.2)",
+              clearProps: "all"
+            });
+          }
+        });
+      });
+    });
+  }
+
+  // Initialize after Astro page load
+  document.addEventListener('astro:page-load', initPortfolioFilters);
+  // Also initialize for first load if not using view transitions
+  initPortfolioFilters();
+</script>
