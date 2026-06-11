@@ -1,0 +1,82 @@
+---
+import teamData from '../data/team.json';
+import '../styles/components/team-grid.css';
+
+const teamMembers = teamData.filter(m => m.type === 'team');
+
+function getInitials(name) {
+  if (!name) return '';
+  const parts = name.trim().split(/\s+/);
+  if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+const gradients = [
+  'linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-indigo) 100%)',
+  'linear-gradient(135deg, var(--neon-cyan) 0%, var(--accent-blue) 100%)',
+  'linear-gradient(135deg, var(--neon-purple) 0%, var(--accent-indigo) 100%)',
+  'linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-indigo) 100%)',
+  'linear-gradient(135deg, var(--accent-blue) 0%, var(--neon-purple) 100%)'
+];
+---
+
+<section class="team-grid" id="team-grid">
+  <div class="container">
+    <div class="team-grid__header">
+      <h2 class="team-grid__title" data-animate="fade-up">Our Team Members</h2>
+    </div>
+
+    <div class="team-grid__wrapper">
+      {teamMembers.map((member, index) => {
+        const initials = getInitials(member.name);
+        const gradient = gradients[index % gradients.length];
+        return (
+          <article class="team-member-card">
+            <div class="team-member-card__avatar" style={`background: ${gradient}`} aria-hidden="true">
+              {initials}
+            </div>
+            <h3 class="team-member-card__name">{member.name}</h3>
+            <p class="team-member-card__role">{member.role}</p>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Only animate on desktop/tablet viewport widths
+    if (window.innerWidth >= 768) {
+      const cards = document.querySelectorAll('.team-member-card');
+      const batchSize = 5;
+      
+      for (let i = 0; i < cards.length; i += batchSize) {
+        const batch = Array.from(cards).slice(i, i + batchSize);
+        gsap.fromTo(batch,
+          { 
+            opacity: 0, 
+            y: 20 
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.08,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: batch[0],
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      }
+    }
+  });
+</script>

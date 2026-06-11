@@ -1,0 +1,98 @@
+.team-grid {
+  padding: var(--space-16) 0;
+  background: var(--bg-secondary);
+}
+
+.team-grid__header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.team-grid__title {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.team-grid__wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-6);
+}
+
+.team-member-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform var(--duration-normal) var(--ease-smooth),
+              box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
+.team-member-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.team-member-card__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-on-dark);
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-normal) var(--ease-smooth);
+}
+
+.team-member-card:hover .team-member-card__avatar {
+  transform: scale(1.05);
+}
+
+.team-member-card__name {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+  transition: color var(--duration-normal) var(--ease-smooth);
+}
+
+.team-member-card:hover .team-member-card__name {
+  color: var(--accent-blue);
+}
+
+.team-member-card__role {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 1024px) {
+  .team-grid__wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .team-grid__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  .team-member-card {
+    padding: var(--space-4);
+  }
+}

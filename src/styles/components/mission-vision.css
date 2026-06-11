@@ -1,0 +1,65 @@
+.mission-vision {
+  padding: var(--space-16) 0;
+  background: var(--bg-primary);
+}
+
+.mission-vision__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.mission-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  transition: border-color var(--duration-normal) var(--ease-smooth),
+              transform var(--duration-normal) var(--ease-smooth),
+              box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
+.mission-card:hover {
+  border-color: var(--accent-blue);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.mission-card__icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--accent-blue-light);
+  color: var(--accent-blue);
+  margin-bottom: var(--space-6);
+}
+
+.mission-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.mission-card__title {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.mission-card__description {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .mission-vision__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
