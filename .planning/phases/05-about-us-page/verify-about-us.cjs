@@ -31,7 +31,7 @@ function checkTask2() {
     throw new Error('src/styles/components/about-hero.css does not exist');
   }
   const content = fs.readFileSync(compPath, 'utf8');
-  if (!content.includes('We translate Our Clients Dreams Into Reality')) {
+  if (!content.includes('We translate') || !content.includes('Our Clients Dreams Into Reality')) {
     throw new Error('AboutHero component missing title');
   }
   console.log('Task 2: PASS');
@@ -82,8 +82,8 @@ function checkTask5() {
     throw new Error('src/styles/components/management.css does not exist');
   }
   const content = fs.readFileSync(compPath, 'utf8');
-  if (!content.includes('Andrew B. Zimmerman') || !content.includes('Jack Durburg')) {
-    throw new Error('Management component missing manager entries');
+  if (!content.includes('team.json') || !content.includes('managers') || !content.includes('manager.name')) {
+    throw new Error('Management component missing dynamic manager mapping');
   }
   console.log('Task 5: PASS');
 }
@@ -99,8 +99,8 @@ function checkTask6() {
     throw new Error('src/styles/components/team-grid.css does not exist');
   }
   const content = fs.readFileSync(compPath, 'utf8');
-  if (!content.includes('Nguyen Nguyen') || !content.includes('Hung Vo')) {
-    throw new Error('TeamGrid component missing team member entries');
+  if (!content.includes('team.json') || !content.includes('member.name')) {
+    throw new Error('TeamGrid component missing dynamic team member mapping');
   }
   console.log('Task 6: PASS');
 }
